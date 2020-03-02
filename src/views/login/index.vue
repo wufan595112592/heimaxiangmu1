@@ -5,16 +5,16 @@
       <div class="title">
           <img src="../../assets/img/logo_index.png" alt="">
       </div>
-<el-form style="margin-top；20px">
-    <el-form-item>
-       <el-input placeholder="请输入手机号"></el-input>
+<el-form :model='loginForm' :rules='loginRules' style="margin-top；20px">
+    <el-form-item prop='mobile'>
+       <el-input v-model="loginForm.mobile" placeholder="请输入手机号"></el-input>
     </el-form-item>
-    <el-form-item>
-       <el-input style='width:60%' placeholder="请输入验证码"></el-input>
+    <el-form-item prop='code'>
+       <el-input v-model="code" style='width:60%' placeholder="请输入验证码"></el-input>
        <el-button plain style='float:right'>发送验证码</el-button>
     </el-form-item>
-     <el-form-item>
-      <el-checkbox>我已阅读同意用户协议和隐私条款</el-checkbox>
+     <el-form-item prop='checked'>
+      <el-checkbox v-model="loginForm.checked">我已阅读同意用户协议和隐私条款</el-checkbox>
     </el-form-item>
      <el-form-item>
       <el-button style='width:100%' type="primary">登录</el-button>
@@ -25,7 +25,18 @@
 
 <script>
 export default {
+  data () {
+    return {
+      loginForm: {
+        mobile: '',
+        code: '',
+        checked: false
+      },
+      loginRules: {
 
+      }
+    }
+  }
 }
 </script>
 
