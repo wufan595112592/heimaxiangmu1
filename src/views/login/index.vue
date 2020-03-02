@@ -10,7 +10,7 @@
        <el-input v-model="loginForm.mobile" placeholder="请输入手机号"></el-input>
     </el-form-item>
     <el-form-item prop='code'>
-       <el-input v-model="code" style='width:60%' placeholder="请输入验证码"></el-input>
+       <el-input v-model="loginForm.code" style='width:60%' placeholder="请输入验证码"></el-input>
        <el-button plain style='float:right'>发送验证码</el-button>
     </el-form-item>
      <el-form-item prop='checked'>
@@ -33,7 +33,19 @@ export default {
         checked: false
       },
       loginRules: {
-
+        mobile: [{ required: true, message: '手机号不能为空' }, {
+          pattern: /^1[3-9]\d{9}$/,
+          message: '手机号格式不正确'
+        }],
+        code: [{ required: true, message: '验证码不能为空' }, {
+          pattern: /^\d{6}$/,
+          message: '6位数验证码'
+        }],
+        checked: [{
+          validator: function (rule, value, callback) {
+            value ? callback() : callback(new Error('您必须同意我们的霸王条款'))
+          }
+        }]
       }
     }
   }
