@@ -51,12 +51,27 @@ export default {
   },
   methods: {
     login () {
+      // this.$refs.myForm.validate(function (isOK) {
+      //   if (isOK) {
+      //     console.log('校验通过')
+      //   } else {
+      //     console.log('校验未通过')
+      //   }
+      // })
       this.$refs.myForm.validate(function (isOK) {
         if (isOK) {
-          console.log('校验通过')
-        } else {
-          console.log('校验未通过')
+          console.log('校验成功')
         }
+      }).then(() => {
+        this.$axios({
+          url: '/authorizations',
+          data: this.loginForm,
+          method: 'post'
+        }).then(res => {
+          console.log(res)
+        }).catch(() => {
+          alert('msg')
+        })
       })
     }
   }
