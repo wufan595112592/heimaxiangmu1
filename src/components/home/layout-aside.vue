@@ -28,7 +28,7 @@
                </template>
              <el-menu-item index='/home/picture'>图文数据</el-menu-item>
              <el-menu-item index='/home/fansinfo'>粉丝概况</el-menu-item>
-             <el-menu-item index='/home/fansportrait'>粉丝画像</el-menu-item>
+             <el-menu-item index='/home/fansphoto'>粉丝画像</el-menu-item>
              <el-menu-item index='/home/fanslish'>粉丝列表</el-menu-item>
 
          </el-submenu></template>
@@ -54,7 +54,7 @@ export default {
       height: 100vh;
       .title {
           text-align: center;
-          padding: 20px 0;
+          padding: 10px 0;
           img {
               height: 35px;
           }
