@@ -58,19 +58,19 @@ export default {
       //     console.log('校验未通过')
       //   }
       // })
-      this.$refs.myForm.validate(function (isOK) {
-        if (isOK) {
-          console.log('校验成功')
-        }
-      }).then(() => {
+      this.$refs.myForm.validate().then(() => {
         this.$axios({
           url: '/authorizations',
           data: this.loginForm,
           method: 'post'
-        }).then(res => {
-          console.log(res)
+        }).then(result => {
+          window.localStorage.setItem('user-token', result.data.data.token)
+          this.$router.push('/home')
         }).catch(() => {
-          alert('msg')
+          this.$message({
+            message: '手机号或者验证码错误',
+            type: 'warning'
+          })
         })
       })
     }
