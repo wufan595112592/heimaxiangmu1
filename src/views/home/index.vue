@@ -7,7 +7,7 @@
     <el-container>
      <layout-header></layout-header>
       <el-main>
-        <ruter-views>主题内容</ruter-views>
+        <ruter-views style="padding:0">主题内容</ruter-views>
       </el-main>
     </el-container>
   </el-container>
