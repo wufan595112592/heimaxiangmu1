@@ -1,22 +1,27 @@
 <template>
   <el-container>
-    <el-aside>
-      <h1>左侧导航</h1>
+    <el-aside style="width:230px">
+
+      <layout-aside></layout-aside>
     </el-aside>
     <el-container>
-        <el-header>
-          上侧导航
-        </el-header>
-        <el-main>
-          <ruter-views>主题内容</ruter-views>
-        </el-main>
+     <layout-header></layout-header>
+      <el-main>
+        <ruter-views>主题内容</ruter-views>
+      </el-main>
     </el-container>
-
   </el-container>
 </template>
 
 <script>
-export default {}
+import LayoutAside from '../../components/home/layout-aside.vue'
+import LayoutHeader from '../../components/home/layout-header.vue'
+export default {
+  components: {
+    'layout-aside': LayoutAside,
+    'layout-header': LayoutHeader
+  }
+}
 </script>
 <style>
 </style>
