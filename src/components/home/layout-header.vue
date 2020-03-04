@@ -42,12 +42,8 @@ export default {
     }
   },
   created () {
-    const token = localStorage.getItem('user-token')
     this.$axios({
-      url: '/user/profile',
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
+      url: '/user/profile'
     }).then(result => {
       this.userInfo = result.data.data
     })
