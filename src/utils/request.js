@@ -1,7 +1,8 @@
+
 import axios from 'axios'
-import ruter from '@/ruter'
+import router from '@/router'
 axios.defaults.baseURL = 'http://ttapi.research.itcast.cn/mp/v1_0'
-axios.interceptors.requst.use(function (config) {
+axios.interceptors.request.use(function (config) {
   const token = localStorage.getItem('user-token')
   config.headers.Authorization = `Bearer ${token}`
   return config
@@ -14,9 +15,8 @@ axios.interceptors.response.use(function (response) {
 }, function (error) {
   if (error.response.status === 401) {
     localStorage.removeItem('user-token')
-    ruter.push('/login')
+    router.push('/login')
   }
   return Promise.reject(error)
 })
-
 export default axios
