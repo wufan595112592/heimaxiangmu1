@@ -1,31 +1,33 @@
 <template>
-  <el-container>
-    <el-aside style="width:230px">
-     <layout-aside></layout-aside>
-    </el-aside>
-    <el-container>
-      <el-header>
-        <layout-header></layout-header>
-      </el-header>
-      <el-main style="padding: 0">
-        <router-view>
-
-        </router-view>
-      </el-main>
-    </el-container>
-  </el-container>
+<!-- 先在最外层放置一个大容器 因为 小容器只能放到大容器里面 -->
+   <el-container>
+     <el-aside style="width:230px;background:#2e2f32">
+       <!-- 左侧导航组件 -->
+       <layout-aside></layout-aside>
+     </el-aside>
+     <!-- 右侧 再嵌套一个 el-container -->
+     <el-container>
+       <!-- 再上下布局 -->
+       <el-header>
+         <!-- 顶部操作栏组件 -->
+         <layout-header></layout-header>
+       </el-header>
+       <!-- 主要区域 el-main默认给加了 20px的 内边距-->
+       <el-main style="padding: 0">
+          <!-- 这里应该放置 二级路由容器 -->
+         <router-view></router-view>
+       </el-main>
+     </el-container>
+   </el-container>
 </template>
 
 <script>
-import LayoutAside from '../../components/home/layout-aside.vue'
-import LayoutHeader from '../../components/home/layout-header.vue'
 
 export default {
-  components: {
-    'layout-aside': LayoutAside,
-    'layout-header': LayoutHeader
-  }
+
 }
 </script>
+
 <style>
+
 </style>
